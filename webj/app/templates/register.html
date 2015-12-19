@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IONOS</title>
+
+    <!-- Bootstrap -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- stylesheet -->
+    <link href="static/css/style.css" rel="stylesheet" type="text/css">
+    <!-- Font Awesome -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Validator -->
+    <link rel="stylesheet" href="static/validator/css/screen.css">
+
+
+
+    <script src="static/js/jquery-2.1.1.js"></script>
+    <script src="static/validator/js/jquery.validate.js"></script>    
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <!-- Notification -->
+    <script src="static/notify/js/notify.js"></script>
+    <script src="static/notify/js/notify-bootstrap.js"></script>
+    
+    <script src="static/javascripts/registration.js"></script>
+  </head>
+<body>
+<div class="container">
+    <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-center">
+            <div >
+                <div class="modal-body">
+                    <img  src="static/images/processing.gif">
+                </div>
+            </div>
+        </div>
+    </div>     
+    <div class="row">
+        <div class="col-lg-2">
+        </div>
+        <div class="col-lg-8">
+        
+            <div class="logo_container">
+                <img src="static/images/ionos_logo_final_sm.jpg">
+            </div>
+            <div class="container-fluid">
+                
+                <form name="register_form" id="register_form" method="POST">
+                <div class="col-lg-6">                    
+                    <div class="form-group">                                                                         
+                         <input id="company" name="reg[company_name]" type="text" placeholder="Company" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input id="address" name="reg[street]" type="text" placeholder="Address" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input id="city" name="reg[city]" type="text" placeholder="City" class="form-control">
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6" >
+                            <div class="left-inner-addon">
+                                <div class="form-group">                 
+                                   <input id="state_province" name="reg[state]" type="text" placeholder="State/Province" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6" >
+                            <div class="right-inner-addon">
+                                <div class="form-group">
+                                    <input id="zip_postal" name="reg[zip]" type="text" placeholder="Zip/Postal" class="form-control">
+                                </div>
+                            </div>
+                        </div>     
+                    </div>                      
+                    <div class="form-group">
+                        <input id="country" name="reg[country]" type="text" placeholder="Country" class="form-control">
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-lg-6" >
+                            <div class="left-inner-addon">
+                                <div class="form-group">                 
+                                   <input id="firstName" name="reg[firstName]" type="text" placeholder="FirstName" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6" >
+                            <div class="right-inner-addon">
+                                <div class="form-group">
+                                    <input id="lastName" name="reg[lastName]" type="text" placeholder="LastName" class="form-control">
+                                </div>
+                            </div>
+                        </div>     
+                    </div>  
+                    <div class="form-group">
+                        <input id="email" name="reg[email]" type="text" placeholder="Email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input id="password" name="reg[password]" type="password" placeholder="Password" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input id="confirm_password" name="reg[reenter_password]" type="password" placeholder="Re-enter Password" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input id="phone" name="reg[default_mobile_notification]" type="text" placeholder="Phone" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <p class="text-right"><a href="javascript:void(0)" onclick="reset();">Clear Information</a></p>                         
+                    </div>                    
+                    <div class="form-group">
+                        <p class="text-right"><input type="checkbox" name="remember" id="remember" class="text-right" />&nbsp;Remember me on this Computer</p>
+                    
+                    </div>
+                </div>
+                <input id="timezone" name="reg[timezone]" type="hidden" class="form-control">
+
+            
+                <div class="form-group">
+                    <div class="text-center">
+                        <label for="registration-error" class="error" id="registration-error" id="registration-error" style="display: none">User Already Exixt</label>                       
+                    </div>
+                </div>
+               <div class="form-group">                                        
+                        <button type="button" class="btn btn-primary btn-clear register_button default" onclick="register();">Create account</button>                    
+                </div>
+                </form>
+            </div>        
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

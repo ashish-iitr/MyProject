@@ -1,0 +1,59 @@
+body {
+  min-width: 680px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  line-height: 1.428571429;
+  color: #333;
+  background-color: #fff;
+}
+
+.header {
+  border-bottom: 3px solid #4a647b;
+  background: #fff;
+}
+
+.logo {
+  margin: 32px 0;
+  width: 159px;
+  height: 88px;
+}
+.header-right {
+  padding-top: 60px;
+}
+.cameraTable{
+  margin-left: -67px;
+  margin-top: 54px;
+  height:79px;
+}
+.tableHeader{
+  padding: 2px;
+  background:grey;
+  color: white;
+}
+
+.icon {
+  margin: 0;
+}
+
+.table-login> tbody > tr > td {
+  padding: 14px 20px;
+}
+.PriorityDrpdwn{
+        background-color: #D3D3D3;
+        border-radius: 13px;
+        color: #000;
+        height: 28px;
+        font-size: 12px;
+        border: none;
+        cursor: pointer;
+        margin-left:60px;
+}
+.hideIcon {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 2px 14px 2px 2px;
+    border: none;
+}
+
+

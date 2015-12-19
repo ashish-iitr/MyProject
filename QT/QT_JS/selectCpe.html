@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <!-- Bootstrap core CSS -->
+        <link href="bootstrap.min.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="ionos.css" rel="stylesheet">
+        <script src="jquery.js"></script>
+        <script src="selectCpe.js"></script>
+    </head>
+    <body>
+        <div class="header">
+            <div class="container">
+                <img src="logo.png" class="logo">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+            <div class="section-title">
+                    <h4 align = "center">Enter CPE Name to see the content files: </h4>
+            </div>
+            </div>
+            <div class="col-lg-4">
+                   <form name="theForm" id="theForm" method="POST">
+                    <table align="center" class="table-login">
+                        <tr>
+                            <td width="135">CPE Name:</td>
+                            <td><input class="form-control" id="cpename" type="text" placeholder="Enter CPE Name" value="VISHWAS-CPE2"/></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input type="submit" class="btn btn-primary btn-block" value="Click" onclick="getCpeFiles()">
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="col-lg-4"></div>
+        </div>
+    </body>
+</html>
+

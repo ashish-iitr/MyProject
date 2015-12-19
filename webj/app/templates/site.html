@@ -1,0 +1,159 @@
+{% extends 'layout.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block body %} 
+
+<ul>
+{% for user in userlist %}
+  <li>
+    {{ user.id }}
+  </li>
+{% endfor %}
+</ul>
+<!-- Notification -->
+    <script src="static/notify/js/notify.js"></script>
+    <script src="static/notify/js/notify-bootstrap.js"></script> 
+    
+    <script src="static/javascripts/site.js"></script> 
+    
+    <div class="row">
+    <div class="col-lg-2"></div>   
+    <div class="col-lg-8">
+        <div class="form-group">
+                <table border="2" width="665" style="margin-left:6px;margin-top: 9px;">
+                <tr class="left_header"><th style="padding: 2px;background:#1569C7;color: white;"> SITE Information </th></tr>
+                <tr style="background: #b2d0b2;"><td><p>This page shows the Information about current status of SITE, IC2 and IM1.</p></td></tr>
+                </table>
+        </div>     
+    </div>
+    <div class="col-lg-2">
+    <div class="popover-markup"> <button class="button button-pill button-flat-action trigger" data-placement="bottom" style="margin-top: 9px;">Help?</button> 
+    <div class="head hide">Ionos Site Help:</div>
+    <div class="content hide">
+     <b>Site Data-</b><br>
+     Ip Address: 54.169.46.89<br>name: GVCPE3-GCE-EU<br>root-dir: /usr/local/ica<br>tenant-id: ionos.com
+     <br>type: ICA<br><b>IC2 Data-</b><br>address: 54.68.178.144<br>keepalive-interval: 10<br>port: 4242<br>
+     retry-interval: 5<br><b>IM1 Data-</b><br>address: 55.69.89.84<br>port: 8080<br>update-interval: 10
+     <br>
+    </div>
+    </div>
+    <!-- <a id="help" style= "cursor: pointer;" data-toggle="popover" data-placement="bottom" data-content='<div>Heres some content</div>' title="" data-original-title="Ionos Site Info"><span style="margin-left: 112px;"><b>help?</b></span></a> --></div>
+    </div>
+    <div class="row">
+    <ul id="tab_nav">
+    <li><a id= "site" href="#tab-site">SITE</a></li>
+    <li><a id= "ic2" href="#tab-ic2">IC2</a></li>
+    <li><a id= "im1" href="#tab-im1">IM1</a></li>
+    </ul>
+    </div>
+    
+
+    <!-- first table -->
+    <div class="row">  
+    <div class="col-lg-2"></div>
+    <span class="siteContent">  
+    <div class="col-lg-8">
+        <table  border="2" width="665" style="margin-left:8px;margin-top:-25px;float:left;">
+        <tr class="inputcontent">
+        <form name="site_form" id="site_form">
+        <td>
+        <label for="address">IP Address: </label><input class="form-control txtbox" type="text" name="address" id="site_address" required><span class="chevron_toggleable glyphicon glyphicon-info-sign" style="margin-left: -39px;cursor: pointer;" id="tip1" data-toggle="tooltip" data-placement="right" title='Ip Address should be between 0 to 255! "54.169.46.89" '></span><br>
+
+        <label for="name">Name: </label><input class="form-control txtbox" type="text" name="name" id="site_name"><span class="chevron_toggleable glyphicon glyphicon-info-sign" style="margin-left: -39px;cursor: pointer;" id="tip2" data-toggle="tooltip" data-placement="right" title='Name of Site "GVCPE3-GCE-EU" '></span><br>
+
+        <label for="tenantId">Tenant Id: </label><input class="form-control txtbox" type="text" name="tenantId" id="site_tenantId"><span class="chevron_toggleable glyphicon glyphicon-info-sign" style="margin-left: -39px;cursor: pointer;" id="tip3" data-toggle="tooltip" data-placement="right" title='Tenant Id "ionos.com"'></span><br>
+
+        <label for="capabilities" style="margin-top: 28px;">Capabilities: </label>
+        <div class="boxed">
+        <label for="ftp" style="margin-left: -163px;">Ftp:</label><input style="margin-left: 37px; cursor: pointer;" type="checkbox" name="capabilities" id="ftp"><span class="chevron_toggleable glyphicon glyphicon-info-sign" style="margin-left: 97px;cursor: pointer;" id="tip4" data-toggle="tooltip" data-placement="right" title='choose FTP or Bursty-Bandwidth(bb) '></span><br>
+
+        <label for="bb" style="margin-left: -163px;">bb:</label><input style="margin-left: 37px; cursor: pointer;" type="checkbox" name="capabilities" id="bb" disabled=""><br>
+        </div>
+
+        <label for="type">Type: </label><input class="form-control txtbox" type="text" name="type" id="site_type"><span class="chevron_toggleable glyphicon glyphicon-info-sign" style="margin-left: -39px;cursor: pointer;" id="tip5" data-toggle="tooltip" data-placement="right" title='site type "ICA"'></span><br>
+
+        <label for="rootDir">Root Dir: </label><input class="form-control txtbox" type="text" name="rootDir" id="site_rootDir"><span class="chevron_toggleable glyphicon glyphicon-info-sign" style="margin-left: -39px;cursor: pointer;" id="tip6" data-toggle="tooltip" data-placement="right" title='site root-dir "/usr/local/ica"'></span><br><br>
+        </td>
+        </form>        
+        </tr>
+        </table>
+        <button type="button" style="margin-left: 229px;"  name="sendButton" class="btn btn-primary btn-clear site-btn" onclick="updateData()">Apply Changes</button>
+        <button type="button" style="margin-left: 229px;" name="sendButton" class="btn btn-primary btn-clear site-btn" onclick="" disabled="">Restart</button>
+    </div>
+    </span>
+    <div class="col-lg-2"></div> 
+    </div>
+    
+    <!-- second table -->
+    <div class="row">
+    <div class="col-lg-2"></div>
+    <span class="ic2Content">   
+    <div class="col-lg-8">
+        <table border="2" width="665" style="margin-left:8px;margin-top:-25px;float:left;">
+        <tr class="inputcontent">
+        <form name="ic2_form" id="ic2_form">
+        <td>
+        <label for="address">IP Address: </label><input class="form-control txtbox" type="text" name="address" id="ic2_address"><span class="chevron_toggleable glyphicon glyphicon-info-sign" style="margin-left: -37px;cursor: pointer;" id="tip7" data-toggle="tooltip" data-placement="right" title='54.68.178.144'></span><br>
+
+        <label for="port">Port: </label><input class="form-control txtbox" type="text" name="port" id="ic2_port"><span class="chevron_toggleable glyphicon glyphicon-info-sign" style="margin-left: -37px;cursor: pointer;" id="tip8" data-toggle="tooltip" data-placement="right" title='4242'></span><br>
+
+        <label for="retry">Retry-Interval: </label><input class="form-control txtbox" type="text" name="retry" id="ic2_retry" required>(in seconds)<span class="chevron_toggleable glyphicon glyphicon-info-sign" style="margin-left: -115px;cursor: pointer;" id="tip9" data-toggle="tooltip" data-placement="right" title='select time "5"'></span><br>
+
+        <label for="keepAlive">KeepAlive-Interval: </label><input class="form-control txtbox" type="text" name="keepAlive" id="ic2_keepAlive">(in seconds)<span class="chevron_toggleable glyphicon glyphicon-info-sign" style="margin-left: -115px;cursor: pointer;" id="tip10" data-toggle="tooltip" data-placement="right" title='select time "10"'></span><br><br>
+        </td>
+        </form>        
+        </tr>
+        </table><br><br>
+        <button type="button" style="margin-left: 229px;" name="sendButton" class="btn btn-primary btn-clear site-btn" onclick="updateData()">Apply Changes</button>
+        <button type="button" style="margin-left: 229px;" name="sendButton" class="btn btn-primary btn-clear site-btn" onclick="" disabled="">Restart</button>
+    </div>
+    </span>
+    <div class="col-lg-2"></div>
+    </div>
+
+    <!-- third table -->
+    <div class="row">
+    <div class="col-lg-2"></div> 
+    <span class="im1Content"> 
+    <div class="col-lg-8">
+        <table  border="2" width="665" style="margin-left:8px;margin-top:-26px;float:left;">
+        <tr class="inputcontent">
+        <form name="im1_form" id="im1_form">
+        <td>
+        <label for="address">IP Address: </label><input class="form-control txtbox" type="text" name="address" id="im1_address"><span class="chevron_toggleable glyphicon glyphicon-info-sign" style="margin-left: -37px;cursor: pointer;" id="tip11" data-toggle="tooltip" data-placement="right" title='55.69.89.84'></span><br>
+
+        <label for="port">Port: </label><input class="form-control txtbox" type="text" name="port" id="im1_port"><span class="chevron_toggleable glyphicon glyphicon-info-sign" style="margin-left: -37px;cursor: pointer;" id="tip12" data-toggle="tooltip" data-placement="right" title='8080'></span><br>
+
+        <label for="update">Update-Interval: </label><input class="form-control txtbox" type="text" name="update" id="im1_update">(in seconds)<span class="chevron_toggleable glyphicon glyphicon-info-sign" style="margin-left: -115px;cursor: pointer;" id="tip13" data-toggle="tooltip" data-placement="right" title='select time "10"'></span><br> 
+        <br>
+        </td>
+        </form>        
+        </tr>
+        </table>
+        <button type="button" style="margin-left: 229px;" name="sendButton" class="btn btn-primary btn-clear site-btn" onclick="updateData()">Apply Changes</button>
+        <button type="button" style="margin-left: 229px;" name="sendButton" class="btn btn-primary btn-clear site-btn" onclick="" disabled="">Restart</button><br><br><br> 
+    </div> 
+    </span>
+    <div class="col-lg-2"></div>
+    </div>
+
+            <!-- Help Modal -->
+    <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Site Information:</h4>
+      </div>
+      <div class="modal-body">
+      This page shows the Information about current status of SITE, IC2 and IM1.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="button button-pill button-flat-action" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+    
+{% endblock %}

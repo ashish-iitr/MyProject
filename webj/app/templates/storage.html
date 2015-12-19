@@ -1,0 +1,185 @@
+{% extends 'layout.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block body %} 
+
+<ul>
+{% for user in userlist %}
+  <li>
+    {{ user.id }}
+  </li>
+{% endfor %}
+</ul>
+
+<!-- Notification -->
+    <script src="static/notify/js/notify.js"></script>
+    <script src="static/notify/js/notify-bootstrap.js"></script>
+    
+    <script src="static/javascripts/storage.js"></script> 
+    
+    <div class="row">
+    <div class="col-lg-2"></div>   
+    <div class="col-lg-8">
+        <div class="form-group">
+                <table border="2" width="665" style="margin-left:7px;margin-top: 9px;">
+                <tr class="left_header"><th style="padding: 2px;background:#F87431;color: white;"> STORAGE Information </th></tr>
+                <tr style="background: #b2d0b2;"><td><p>This page shows the Information about storage devices connected to this computer and directory path where you want to mount that storage devices.</p></td></tr>
+                </table>
+        </div>      
+    </div>
+    <div class="col-lg-2"> <div class="popover-markup"> <button class="button button-pill button-flat-action trigger" data-placement="bottom" style="margin-top: 9px;">Help?</button> 
+    <div class="head hide">Ionos Storage Help:</div>
+    <div class="content hide">
+     <b>NFS Data-</b><br>
+     Ip Address: 192.168.0.55<br>name: /usr/local/ica/nfs<br>root-dir: /home/ionos/nfs<br>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="row">
+    <ul id="tab_nav">
+    <li><a id= "nfs" href="#tab-nfs" onclick="nfsTable()">NFS</a></li>
+    <li><a id= "usb" href="#tab-usb" onclick="searchDevice()">USB</a></li>
+    </ul>
+    </div>
+    
+
+    <!-- nfs table -->
+    <span class="nfsContent"> 
+    <div class="row">  
+    <div class="col-lg-2"></div> 
+    <div class="col-lg-8">
+        <table  border="2" width="665" style="margin-left:8px;margin-top:-25px;float:left;">
+        <tr class="inputcontent">
+        <form name="nfs_form" id="nfs_form">
+        <td>
+        <label for="nfsIp">NFS Server IP: </label><input class="form-control txtbox" type="text" name="nfsIp" id="nfs_address" placeholder="Enter NFS IP Address"><span class="chevron_toggleable glyphicon glyphicon-info-sign" style="margin-left: -39px;cursor: pointer;" id="tip1" data-toggle="tooltip" data-placement="right" title='Ip Address should be between 0 to 255! "192.168.0.55" '></span><br>
+
+        <label for="path">Path: </label><input class="form-control txtbox" type="text" name="path" id="nfs_path" placeholder="Enter NFS Path"><span class="chevron_toggleable glyphicon glyphicon-info-sign" style="margin-left: -39px;cursor: pointer;" id="tip2" data-toggle="tooltip" data-placement="right" title='"/usr/local/ica/nfs" '></span><br>
+
+        <label for="localPath">Local Path: </label><input class="form-control txtbox" type="text" name="localPath" id="nfs_localpath" placeholder="Enter Local Path"><span class="chevron_toggleable glyphicon glyphicon-info-sign" style="margin-left: -39px;cursor: pointer;" id="tip3" data-toggle="tooltip" data-placement="right" title='"/home/ionos/nfs"'></span><br><br>
+
+        <button type="button" style="margin-left: 225px;"  name="sendButton" class="btn btn-primary btn-clear site-btn" onclick="nfsMount()">Mount</button>
+        </td>
+        </form>        
+        </tr>
+        </table><br><br>   
+    </div>
+    <div class="col-lg-2"></div> 
+    </div>
+    
+<div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+    <div id="nfsTableDetails" name="nfsTableDetails"></div>
+    </div>
+    <div class="col-lg-2"></div>
+</div>
+   <div class="row">
+    <div class="col-lg-12"></div>
+    </div>
+    <div class="row">
+    <div class="col-lg-12"></div>
+    </div>
+    <div class="row">
+    <div class="col-lg-12"></div>
+    </div>
+    <div class="row">
+    <div class="col-lg-12"></div>
+    </div>               
+    <div class="row">
+    <div class="col-lg-12"></div>
+    </div>
+</span>
+
+
+    
+    <!-- usb table -->
+    <div class="row">
+    <div class="col-lg-2"></div>
+    <span class="usbContent">   
+    <div class="col-lg-8">
+        <table border="2" width="665" style="margin-left:8px;margin-top:-25px;float:left;">
+        <tr class="inputcontent">
+        <td>
+        <p>Please insert your USB device in to the system and then select your device from the list of devices for mounting or unmounting.</p>
+        <!-- <button type="button" id = "discoverBtn" style="margin-left: 218px;" name="sendButton" class="btn btn-primary btn-clear site-btn" onclick="searchDevice()">Click to Discover New USB</button><br>
+        <br><br> -->
+        </td></tr></table>
+    </div>
+    <div class="col-lg-2"></div>
+
+    <div class="row">
+    <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+        <div id="usbTableDetails" name="usbTableDetails"></div>
+        </div>
+    <div class="col-lg-2"></div>
+    </div>
+    </span>
+    <div class="row">
+    <div class="col-lg-12"></div>
+    </div>
+    <div class="row">
+    <div class="col-lg-12"></div>
+    </div>
+    <div class="row">
+    <div class="col-lg-12"></div>
+    </div>
+    <div class="row">
+    <div class="col-lg-12"></div>
+    </div>
+    <div class="row">
+    <div class="col-lg-12"></div>
+    </div>               
+    <div class="row">
+    <div class="col-lg-12"></div>
+    </div>
+    </div>
+    
+
+    <!-- Mount Modal -->
+<div class="modal fade" id="mountModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Mount Point</h4>
+        (Always you have to create a new folder into given label for mounting)
+      </div>
+      <div class="modal-body">
+        <span><b>Label: /usr/local/ica</b></span>
+    <div class="form-group">
+       <!--  <label for="name">Folder Name:</label> -->
+        <input type="text" class="form-control" id="folderName" placeholder="Enter New Folder Name">
+    </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="button button-pill button-flat-action" data-dismiss="modal">Close</button>
+        <button type="button" class="button button-pill button-flat-action" onclick="usbMount()" data-dismiss="modal">Mount to New Folder</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <!-- Help Modal -->
+<div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Storage Information</h4>
+      </div>
+      <div class="modal-body">
+       This page shows the Information about storage devices connected to this computer and directory path where you want to mount that storage devices.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="button button-pill button-flat-action" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

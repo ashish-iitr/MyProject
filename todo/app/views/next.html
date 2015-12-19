@@ -1,0 +1,34 @@
+ <style type="text/css">
+  .next{
+	margin: 40px 40px 40px 380px;
+    }
+  .spce{
+   position: fixed;
+   right: 40px; 
+     } 
+   .done{
+      position: fixed;
+      margin: 290px 40px 40px 380px; 
+     
+    }
+ .txt{
+     text-decoration: line-through;
+     color: black;
+ }
+ </style>
+  <div class = "next" ng-show="getTask ">
+      <p><font size="4">Tasks For next 7 days:</font></p>
+        <ul ng-repeat="todo in getTask | orderBy: 'date' | nextFilter | filter:{done:false}" >
+                  <input type="checkbox"  ng-click="todo.done = true"></input><font color="black">{{todo.task}}</font>
+                  <font color="black" class = "spce">{{ todo.date | dateFormatFilter }}</font>
+            
+        </ul>
+  </div>
+  <div class = "done" ng-show="getTask ">
+        <p><font size="4">Finished Task:</font></p>
+        <ul ng-repeat="todo in getTask | orderBy: 'date' | nextFilter | filter:{done:true}" >    
+                   <div class = "txt"><input type="checkbox" checked="on" ng-click="todo.done = false"></input><font color="black">{{todo.task}}</font></div>  
+                   <font color="black" class = "spce">{{ todo.date | dateFormatFilter }}</font> 
+            
+        </ul>
+  </div>

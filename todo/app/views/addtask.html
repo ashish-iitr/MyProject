@@ -1,0 +1,41 @@
+<style type="text/css">
+.addtask--form{
+	margin: 40px 40px 40px 380px;
+}
+
+  .textbox {
+		 width: 50%;
+         height: 35px;
+         font-size: 1rem;
+         padding: 0 0 0 10px;
+         margin: 10px 0 0 0;
+         background: #f5f5f5;
+         border: 1px solid rgb(238, 232, 232);
+         color: black;
+	}
+	.date--box {
+		 width: 20%;
+         height: 35px;
+         font-size: 1rem;
+         padding: 0 0 0 10px;
+         margin: 10px 0 0 0;
+         background: #f5f5f5;
+         border: 1px solid rgb(238, 232, 232);
+         color: black;
+	}
+  .button {
+    height: 30px;
+		font-size: 1rem;
+		background-color: #FF6666;
+		border-radius: 5px;
+	}
+</style>
+<!-- 	<div ng-include = "'../views/sidebar.html'"></div> -->
+  <div class="addtask--form">
+             <form ng-submit="start()" name = "form">
+               <p><font size = 5>Inbox</font></p>
+               <input type="text" class="textbox" name="add" placeholder="add task here"  ng-model='task' required/>
+               <input type="date" name = "dt"  class="date--box"  ng-model='date' value="{{ date }}" />
+               <br><input class="button" type="submit" value="Add Task" />
+             </form>
+  </div>

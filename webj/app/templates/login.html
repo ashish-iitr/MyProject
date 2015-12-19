@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IONOS</title>
+
+    <!-- Bootstrap -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- stylesheet -->
+    <link href="static/css/style.css" rel="stylesheet" type="text/css">
+    <!-- Font Awesome -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Validator -->
+    <link rel="stylesheet" href="static/validator/css/screen.css">
+
+    <script src="static/js/jquery-2.1.1.js"></script>
+    
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="static/validator/js/jquery.validate.js"></script>    
+    
+<!-- Notification -->
+    <script src="static/notify/js/notify.js"></script>
+    <script src="static/notify/js/notify-bootstrap.js"></script>
+    
+    <script src="static/javascripts/login.js"></script>
+
+    <script>
+
+</script>
+  </head>
+<body>
+<div class="container">    
+    <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-center">
+            <div >
+                <div class="modal-body">
+                    <img  src="static/images/processing.gif">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Dont change the row id as firstRow as it is used for notification message. -->
+    <div class="row">
+        <div class="col-lg-3 login_panel">
+        </div>
+        <div class="col-lg-6 login_panel">
+        
+        <div class="logo_container">
+        	<img class="firstRow" src="static/images/ionos_logo_final_sm.jpg">
+        </div>
+        <div class="container-fluid">
+             <div class="row">                
+                 <div class="row-fluid">
+                    <div class="text-center">
+                        <label for="login-error" class="error" id="login-error" id="login-error" style="display: none"></label>                       
+                    </div>
+                </div>
+             </div>
+            <div class="row">            
+                <form name="login_frm" id="login_frm" method="POST">    
+                    <div class="form-group">
+                        <input type="text" name="username" id="username" placeholder="Enter UserName" class="form-control col-lg-8 form_input_element">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" id="password" placeholder="Enter Password" class="form-control col-lg-8 form_input_element">
+                    </div>
+                    <div class="form-group">
+                        <span><input type="checkbox" name="remember" id="remember" class="checkbox_control">&nbsp;Remember me on this Computer</span>
+                    </div>
+                     <div class="form-group">
+                        <input type="button" id="loginButton" class="btn btn-primary btn-clear login-btn default" value="Login" onclick="login();">
+                    </div>
+                     <div class="form-group">
+                        <input type="button" class="btn btn-warning btn-clear login-btn " value="Create New Account" onclick="register();" disabled="">
+                    </div>
+                     <div class="form-group">
+                        <a href="#" class="forgot_link">Forgot your Password?</a> 
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        </div>
+        <div class="col-lg-3 login_panel">
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

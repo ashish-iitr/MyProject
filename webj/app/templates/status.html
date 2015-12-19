@@ -1,0 +1,157 @@
+{% extends 'layout.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block body %} 
+
+<ul>
+{% for user in userlist %}
+  <li>
+    {{ user.id }}
+  </li>
+{% endfor %}
+</ul>
+
+    <script src="static/javascripts/status.js"></script>
+
+<!-- Notification -->
+    <script src="static/notify/js/notify.js"></script>
+    <script src="static/notify/js/notify-bootstrap.js"></script>
+  
+     <!-- info part -->
+    <div class="row">
+    <div class="col-lg-2"></div>   
+    <div class="col-lg-8">
+        <div class="form-group">
+                <table border="2" width="665" style="margin-left:8px;margin-top: 9px;">
+                <tr class="left_header"><th style="padding: 2px;background:#808000;color:#fefef0;"> Wireless Router Status </th></tr>
+                <tr style="background: #b2d0b2;"><td><p>This page shows the current status and some basic settings of the device.</p></td></tr>
+                </table>
+        </div>      
+    </div>
+    <div class="col-lg-2"><div class="popover-markup"> <button class="button button-pill button-flat-action trigger" data-placement="bottom" style="margin-top: 9px;">Help?</button> 
+    <div class="head hide">Ionos Status Help:</div>
+    <div class="content hide">
+     <b>Site Data-</b><br>
+     Ip Address: 54.169.46.89<br>name: GVCPE3-GCE-EU<br>root-dir: /usr/local/ica<br>tenant-id: ionos.com
+     <br>type: ICA<br>
+    </div>
+    </div></div>
+    </div>
+    
+    <div class="row">
+    <ul id="tab_nav">
+    <li><a id= "system" href="#tab-system">System</a></li>
+    <li><a id= "lan" href="#tab-lan">LAN Configuration</a></li>
+    </ul> 
+    </div>   
+      <!-- system table -->
+    <div class="row">  
+    <div class="col-lg-2"></div> 
+    <span class="system">
+    <div class="col-lg-8">
+        <table border="2" width="665" style="margin-left:8px;margin-top:-25px;float:left;" align="center">
+           <tr>
+               <td width="50%" align="center">
+                <label for="productName">Product Name</label>   
+               </td>
+               <td width="50%" align="center">
+                 <span>DIR-600M</span>   
+               </td>
+           </tr>
+           <tr>
+               <td width="50%" align="center">
+                <label for="uptime">Uptime</label>   
+               </td>
+               <td width="50%" align="center">
+                 <span>4 days, 17:49:52</span>   
+               </td>
+           </tr>
+           <tr>
+               <td width="50%" align="center">
+                <label for="dateTime">Date / Time</label>   
+               </td>
+               <td width="50%" align="center">
+                 <span>Mon Jan 5 17:50:52 1970</span>   
+               </td>
+           </tr> 
+        </table>
+        <br>
+        <button type="button" style="margin-left: 246px;" name="refreshButton" class="btn btn-primary btn-clear site-btn" onclick="" disabled="">Refresh</button>
+    </div>
+    </span>
+    <div class="col-lg-2"></div>
+    </div> 
+    <!-- LAN configuration table -->
+    <div class="row">
+    <div class="col-lg-2"></div>
+    <span class="lan">  
+    <div class="col-lg-8">
+        <table border="2" width="665" style="margin-left:8px;margin-top:-26px;float:left;" align="center">
+           <tr>
+               <td width="50%" align="center">
+                <label for="ipAddressLan">IP Address</label>   
+               </td>
+               <td width="50%" align="center">
+                <span>192.168.0.1</span>   
+               </td>
+           </tr>
+           <tr>
+               <td width="50%" align="center">
+                <label for="subnetMask">Subnet Mask</label>   
+               </td>
+               <td width="50%" align="center">
+                 <span>255.255.255.0</span>   
+               </td>
+           </tr>
+           <tr>
+               <td width="50%" align="center">
+                <label for="dhcpServer">DHCP Server</label>   
+               </td>
+               <td width="50%" align="center">
+                 <span>Enable</span>   
+               </td>
+           </tr>
+           <tr>
+               <td width="50%" align="center">
+                <label for="macAddressLan">MAC Address</label>   
+               </td>
+               <td width="50%" align="center">
+                 <span>C4:A8:1D:2E:23:E6</span>   
+               </td>
+           </tr>
+            <tr>
+               <td width="50%" align="center">
+                <label for="defaultGateway">Default Gateway</label>   
+               </td>
+               <td width="50%" align="center">
+                 <span>115.99.196.1</span>   
+               </td>
+           </tr>  
+        </table>
+        <br>
+        <button type="button" style="margin-left: 246px;" name="refreshButton" class="btn btn-primary btn-clear site-btn" onclick="" disabled="">Refresh</button>
+    </div>
+    </span>
+    <div class="col-lg-2"></div>
+    </div>
+
+          <!-- Help Modal -->
+   <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Status Information</h4>
+      </div>
+      <div class="modal-body">
+      You can adjust the height & margin as you wish. And since 'p' is a display: block element. it should give you the expected output.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="button button-pill button-flat-action" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>  
+    
+{% endblock %}

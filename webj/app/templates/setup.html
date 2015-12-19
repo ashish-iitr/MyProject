@@ -1,0 +1,106 @@
+{% extends 'layout.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block body %} 
+
+<ul>
+{% for user in userlist %}
+  <li>
+    {{ user.id }}
+  </li>
+{% endfor %}
+</ul>
+
+    <script src="static/javascripts/setup.js"></script>
+
+<!-- Notification -->
+    <script src="static/notify/js/notify.js"></script>
+    <script src="static/notify/js/notify-bootstrap.js"></script>
+
+    <div class="row">
+    <div class="col-lg-2"></div>   
+    <div class="col-lg-8">
+        <div class="form-group">
+                <table border="2" width="665" style="margin-left:-6px;margin-top: 9px;">
+                <tr class="left_header"><th style="padding: 2px;background:#848b79;color:white;"> LAN Interface Setup </th></tr>
+                <tr style="background: #b2d0b2;"><td><p>This page is used to configure the parameters for Internet network which connects to the LAN port of your Access Point. Here you may change the access method to static IP, DHCP by click the item value of LAN Access type.</p></td></tr>
+                </table>
+            </div>      
+    </div>
+    <div class="col-lg-2"><div class="popover-markup"> <button class="button button-pill button-flat-action trigger" data-placement="bottom" style="margin-top: 9px;">Help?</button> 
+    <div class="head hide">Ionos Setup Help:</div>
+    <div class="content hide">
+     <b>Site Data-</b><br>
+     Ip Address: 54.169.46.89<br>name: GVCPE3-GCE-EU<br>root-dir: /usr/local/ica<br>tenant-id: ionos.com
+     <br>type: ICA<br>
+    </div>
+    </div></div>
+    </div>
+    <!-- DHCP table -->
+    <div class="row">
+    <div class="col-lg-2"></div>   
+    <div class="col-lg-8">
+        <table border="2" width="665" style="margin-left:-7px;margin-top: 21px;"><tr class="left_header"><th style="padding: 4px;background:#131d24;color:#fefef0;">LAN Interface</th></tr>
+        <tr class="inputcontent">
+        <form>
+        <td><label for="accessType">IP Address Type: </label>
+        <select id="accessType" name="accessType" class="drp-dwn">
+            <option value="1" selected="selected">DHCP Client</option>
+            <option value="2">Static IP</option>
+        </select><br>
+        <!-- dhcp table -->
+        <span id="dhcp">
+        <label for="hostName">Host Name: </label><input class="form-control txtbox" type="text" name="hostName" value="hostname"><span class="chevron_toggleable glyphicon glyphicon-info-sign" style="margin-left: -39px;cursor: pointer;" id="tip1" data-toggle="tooltip" data-placement="right" title='Ip Address should be between 0 to 255! "54.169.46.89" '></span><br>
+
+        <label for="dnsAutomatic">Attain DNS Automatically:</label><input style="margin-left:10px;margin-top: 12px;" type="radio" name="dns" value="dnsAutomatic"> <span style="font-size: 12px;"> (Need to repair the connection of your PC if DNS configuration changed.)<br></span>
+
+        <label for="dnsManual">Set DNS Manually:</label><input style="margin-left:10px;margin-top: 12px;" type="radio" name="dns" value="dnsManual"><br>
+
+        <label for="dnsServer1">DNS Server 1: </label><input class="form-control txtbox" type="text" name="dnsServer1" value="0.0.0.0"><span class="chevron_toggleable glyphicon glyphicon-info-sign" style="margin-left: -39px;cursor: pointer;" id="tip2" data-toggle="tooltip" data-placement="right" title='Ip Address should be between 0 to 255! "54.169.46.89" '></span><br>
+
+        <label for="dnsServer2">DNS Server 2: </label><input class="form-control txtbox" type="text" name="dnsServer2" value="0.0.0.0" >(Optional)<span class="chevron_toggleable glyphicon glyphicon-info-sign" style="margin-left: -101px;cursor: pointer;" id="tip3" data-toggle="tooltip" data-placement="right" title='Ip Address should be between 0 to 255! "54.169.46.89" '></span><br><br>
+        </span>
+       
+        <!-- static table -->
+        <span id="static">
+        <label for="ipAddress">IP Address: </label><input class="form-control txtbox" type="text" name="hostName" value="0.0.0.0"><span class="chevron_toggleable glyphicon glyphicon-info-sign" style="margin-left: -39px;cursor: pointer;" id="tip4" data-toggle="tooltip" data-placement="right" title='Ip Address should be between 0 to 255! "54.169.46.89" '></span><br>
+
+        <label for="subnetMask">Subnet Mask: </label><input class="form-control txtbox" type="text" name="mtuSize" value="0.0.0.0"><span class="chevron_toggleable glyphicon glyphicon-info-sign" style="margin-left: -39px;cursor: pointer;" id="tip5" data-toggle="tooltip" data-placement="right" title='Ip Address should be between 0 to 255! "54.169.46.89" '></span><br>
+
+        <label for="gateway">Default Gateway: </label><input class="form-control txtbox" type="text" name="mtuSize" value="0.0.0.0"><span class="chevron_toggleable glyphicon glyphicon-info-sign" style="margin-left: -39px;cursor: pointer;" id="tip6" data-toggle="tooltip" data-placement="right" title='Ip Address should be between 0 to 255! "54.169.46.89" '></span><br>
+
+        <label for="dnsServer1">DNS Server 1: </label><input class="form-control txtbox" type="text" name="dnsServer1" value="0.0.0.0"><span class="chevron_toggleable glyphicon glyphicon-info-sign" style="margin-left: -39px;cursor: pointer;" id="tip7" data-toggle="tooltip" data-placement="right" title='Ip Address should be between 0 to 255! "54.169.46.89" '></span><br>
+
+        <label for="dnsServer2">DNS Server 2: </label><input class="form-control txtbox" type="text" name="dnsServer2" value="0.0.0.0">(Optional)<span class="chevron_toggleable glyphicon glyphicon-info-sign" style="margin-left: -101px;cursor: pointer;" id="tip8" data-toggle="tooltip" data-placement="right" title='Ip Address should be between 0 to 255! "54.169.46.89" '></span><br><br>
+        </span>
+        </td>
+        </form>        
+        </tr>
+        </table><br>
+        <button type="button"  name="sendButton" style="margin-left:214px;" class="btn btn-primary btn-clear setup-btn" onclick="">Apply Changes</button>
+        <button type="button" name="sendButton" style="margin-left:214px;" class="btn btn-primary btn-clear setup-btn" onclick="" disabled="">Reset</button>
+    </div>
+    <div class="col-lg-2"></div>
+    </div>
+    <br><br>
+
+                <!-- Help Modal -->
+     <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Setup Information</h4>
+      </div>
+      <div class="modal-body">
+      You can adjust the height & margin as you wish. And since 'p' is a display: block element. it should give you the expected output.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="button button-pill button-flat-action" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>  
+         
+    {% endblock %}

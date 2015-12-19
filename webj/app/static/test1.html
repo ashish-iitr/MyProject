@@ -1,0 +1,45 @@
+<html>
+<body>
+
+<script src="js/jquery-2.1.1.js"></script>
+<script src="notify/js/notify.js"></script>
+<script src="notify/js/notify-bootstrap.js"></script>
+
+  <style type="text/css">
+    .boxes {
+      margin: 150px;
+    }
+    .box {
+      border: thin solid blue;
+      padding: 10px;
+      margin: 20px;
+      width: 100px;
+    }
+    .wrapper {
+      margin-top: 50px
+    }
+  </style>
+
+  <div class="boxes"></div>
+
+  <!-- run code -->
+  <script class="demo">
+
+    var positions = ["top", "right", "bottom", "left"];
+    var boxes = $(".boxes");
+
+    $.notify.defaults({ arrowShow: false })
+    $(function() {
+      $.each(positions, function(i, p) {
+        var box = $("<div class=\"box\">"+p+"rrrr</div>");
+        boxes.append($("<div class=\"wrapper\"/>").append(box));
+
+        box.notify(p, {position: p+" center"});
+      });
+
+    });
+  </script>
+
+</body>
+</html>
+

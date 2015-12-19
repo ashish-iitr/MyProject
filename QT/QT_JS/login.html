@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <!-- Bootstrap core CSS -->
+        <link href="bootstrap.min.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="ionos.css" rel="stylesheet">
+        <script src="jquery.js"></script>
+        <script src="login.js"></script>
+    </head>
+    <body>
+        <div class="header">
+            <div class="container">
+                <img src="logo.png" class="logo">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+            <div class="section-title">
+                    <h4 align = "center">LogIn to your Account</h4>
+            </div>
+            </div>
+            <div class="col-lg-4">
+                   <form name="theForm" id="theForm" method="POST">
+                    <table align="center" class="table-login">
+                        <tr>
+                            <td width="135">User Id:</td>
+                            <td><input class="form-control" id="username" type="text" placeholder="Email address" value = "ashish@ionosnetworks.com"/></td>
+                        </tr>
+                        <tr>
+                            <td width="135">Tenant Name:</td>
+                            <td><input class="form-control" id="tenantname" type="text" placeholder="Tenant Name" value="SAFARI"/></td>
+                        </tr>
+                        <tr>
+                            <td width="135">Password:</td>
+                            <td><input class="form-control" id="password" type="password" placeholder="Password" value="ionos"/></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input type="submit" class="btn btn-primary btn-block" value="LogIn" onclick="login()">
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="col-lg-4"></div>
+        </div>
+    </body>
+</html>

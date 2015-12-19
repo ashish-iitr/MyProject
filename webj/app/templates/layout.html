@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Bootstrap -->    
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- stylesheet -->
+    <link href="static/css/style.css" rel="stylesheet" type="text/css">
+    <link href="static/css/buttons.css" rel="stylesheet" type="text/css">
+    <!-- Font Awesome -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <script src="static/js/jquery-2.1.1.js" type="text/javascript"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>	   
+    <script src="static/javascripts/layout.js"></script>
+  </head>
+
+<body>
+	<section class="container">
+        
+        <header>
+                   <div class="row">
+            <div class="col-lg-3">&nbsp;</div>
+            <div class="col-lg-6" ><img src="static/images/logo.png" class="logo"></div>
+            <div class="col-lg-3">
+            <nav class="navbar navbar-default top_gap" role="navigation">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+        
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="static/images/user.jpg" class="userLogo"></a>
+                  <ul class="dropdown-menu">
+                    <!-- <li><a href="#">User Profile</a></li> -->
+                   <!-- <li><a href="#">Transfer</a></li>-->
+                    <li><a href="#">Account Setting</a></li>
+                    <li><a href="#" id="loginUser"><i class="glyphicon glyphicon-user"></i>&nbspIonos</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/logout">Logout</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+            </div>
+        </div>
+        
+        <div class="row">
+        <div class="col-lg-2">&nbsp;</div>
+        <div class="col-lg-8">
+            <div class="row">
+                <ul class="icon_nav">
+                    <li class="site"><a id="site_logo" href="/site">Site</a></li>
+                    <li class="setup"><a id="setup_logo" href="/setup">Setup</a></li> <!-- /setup -->
+                    <li class="status"><a id="status_logo" href="/status">Status</a></li> <!-- /status -->
+                    <li class="storage"><a id="storage_logo" href="/storage">Storage</a></li> <!-- /storage -->
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-2">&nbsp;</div>
+        </div>
+        </header>
+    
+        <!-- Body begins -->
+        <section role="main">
+        {% block body %}{% endblock %}
+        </section> <!-- ends Body -->
+    
+    </section>
+    
+        <footer>
+        
+        </footer>
+
+</body>
+</html>
