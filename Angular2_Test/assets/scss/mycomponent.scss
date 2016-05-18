@@ -1,0 +1,27 @@
+.is-awesome {
+	font-weight: bold;
+	color: green;
+}
+.clicked {
+	color: #233dcb;
+	font-weight: bold;
+}
+ul{
+	list-style: none;
+	margin: 16px 0;
+	padding: 0;
+}
+li{
+	cursor: pointer;
+	transition: padding 0.3s;
+}
+li:hover{
+	padding-left: 8px;
+	color: #233dcb;
+	font-weight: bold;
+	border-left: 3px solid #233dcb;
+}
+header nav a:hover,
+header nav a.router-link-active{
+	color: #2ab;
+}
