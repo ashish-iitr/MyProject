@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="/home/anil/todo/app/angular.min.js"></script>
+</head>
+
+<body ng-app="todoapp">
+<script src="/home/anil/todo/app/scripts/controllers/login.js"></script>
+  <div ng-controller="LoginController" >
+
+    <h1>TD</h1>
+             <form action="" method="post" >
+                <input type="text" name="uname" placeholder="Username or email" ng-model='username' />
+                <input type="password" name="pwd" placeholder="Password" ng-model='passwd' />
+                <input type="submit" ng-click="start()" value="Sign in"/>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<style type="text/css">
+.today{
+	margin: 40px 40px 40px 380px;
+    }
+ .spce{
+   position: fixed;
+   right: 40px; 
+ }   
+ .done{
+      position: fixed;
+      margin: 290px 40px 40px 380px; 
+     
+    }
+ .txt{
+     text-decoration: line-through;
+     color: black;
+    } 
+</style>
+    <div class = "today" ng-show="getTask ">
+      <p><font size="4">Tasks For Today:</font></p>
+        <ul ng-repeat="todo in getTask | todayFilter | filter:{done:false} " >    
+                   <input type="checkbox" ng-click="todo.done = true"></input><font color="black">{{todo.task}}</font>  
+                   <font color="black" class = "spce">{{ todo.date | dateFormatFilter }}</font> 
+                   <!-- <b><font color="black">{{todo.done}}</font></b>  -->
+            
+        </ul>
+    </div>    
+    <div class = "done" ng-show="getTask ">
+        <p><font size="4">Today's Finished Task:</font></p>
+        <ul ng-repeat="todo in getTask | todayFilter | filter:{done:true}" >    
+                   <div class = "txt"><input type="checkbox" checked="on" ng-click="todo.done = false"></input><font color="black">{{todo.task}}</font></div>  
+                   <font color="black" class = "spce">{{ todo.date | dateFormatFilter }}</font> 
+            
+        </ul>
+    </div>

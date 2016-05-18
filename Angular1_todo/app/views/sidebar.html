@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+ <style type="text/css">
+  .sidebar {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 350px;
+    height: 1000px;
+    border-right:none;
+    background-color: #f2f2f2;
+  }
+  .btn {
+    position: fixed;
+    left: 150px;
+  }
+	</style>
+<html>
+  <head>
+    <script src="angular.min.js"></script>
+    <script src="angular-route.min.js"></script>
+    <script src="angular-resource.min.js"></script>
+    <script src="angular-sanitize.min.js"></script>
+  </head>
+<body ng-app="todoapp">
+  <div class="container" ng-view></div>
+
+    <script src="scripts/app.js"></script>
+    <script src="scripts/filters/filter_today.js"></script>
+    <script src="scripts/filters/filter_next.js"></script>
+    <script src="scripts/filters/date_filter.js"></script>
+    <script src="scripts/services/task_service.js"></script>
+    <script src="scripts/controllers/sidebar.js"></script>
+    <script src="scripts/controllers/addtask.js"></script>
+    <script src="scripts/controllers/today.js"></script>
+    <script src="scripts/controllers/next.js"></script>
+  <div ng-controller="sidebarController" class="sidebar">
+   <div class="btn">
+    <h1>TD<hr></h1>
+    <button ng-click="addtask()"><b><font color= "#708090">inbox</button>
+    <br><br><button ng-click="today()"><b><font color= "#708090">Today</button>
+    <br><br><button ng-click="next()"><b><font color= "#708090">next 7 days</button>
+   </div>
+  </div>
+</body>
+</html>
