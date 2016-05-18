@@ -1,0 +1,34 @@
+// [
+// 	{
+// 		"name": "Maria", "age": 30
+// 	},
+// 	{
+// 		"name": "Fred", "age": 20
+// 	},
+// 	{
+// 		"name": "Francis", "age": 25
+// 	}
+
+// ]
+
+{
+	"name" : "Max",
+	"children": [
+		{
+			"name" : "Sylvia",
+			"children" : [
+				{ "name" : "Craig" },
+				{ "name" : "Robin" },
+				{ "name" : "Anna" }
+			]
+		},
+		{
+			"name" : "David",
+			"children" : [
+				{ "name" : "Jeff", "size" : 3554 },
+				{ "name" : "Buffy", "size" : 5731 }
+			]
+		}
+
+	]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "d3",
+  "version": "1.0.0",
+  "description": "first d3 test example",
+  "main": "index.js",
+  "devDependencies": {
+    "http-server": "^0.6.1"
+  },
+  "scripts": {
+    "prestart": "npm install",
+    "start": "http-server -a localhost -p 8000 -c-1"
+  }
+}
